@@ -1,5 +1,6 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
 import { HelloWorld } from "./components/HelloWorld";
+import EmailSubmission from "./components/EmailSubmission";
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -23,6 +24,8 @@ PLASMIC.registerComponent(HelloWorld, {
     children: 'slot'
   }
 });
+
+PLASMIC.substituteComponent(EmailSubmission, 'EmailCollector');
 
 // You can register any code components that you want to use here; see
 // https://docs.plasmic.app/learn/code-components-ref/
