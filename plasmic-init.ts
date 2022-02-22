@@ -2,6 +2,7 @@ import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
 import { HelloWorld } from "./components/HelloWorld";
 import EmailSubmission from "./components/EmailSubmission";
 import Map from "./components/Map";
+import YouTubeVideo from "./components/YouTubeVideo";
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -30,10 +31,23 @@ PLASMIC.registerComponent(Map, {
   name: 'Map',
   props: {
     className: 'string',
+    height: 'string',
+    width: 'string',
+  },
+});
+
+PLASMIC.registerComponent(YouTubeVideo, {
+  name: 'YouTubeVideo',
+  props: {
+    height: 'string',
+    width: 'string',
+    videoId: 'string',
+    autoplay: 'boolean',
   },
 });
 
 PLASMIC.substituteComponent(EmailSubmission, 'EmailCollector');
+
 
 // You can register any code components that you want to use here; see
 // https://docs.plasmic.app/learn/code-components-ref/
