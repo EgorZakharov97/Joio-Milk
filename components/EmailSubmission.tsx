@@ -8,10 +8,13 @@ export default function EmailSubmission(props) {
   const [success, setSuccess] = useState(false);
   const [failure, setFailure] = useState(false);
 
-  const onSubmit = () => {
-    alert('form has been submitted, ' + email);
+  const onSubmit = (e: React.FormEvent<HTMLInputElement>) => {
+    e.preventDefault();
     const isValid = validateEmail(email);
-    if (isValid) setSuccess(true);
+    if (isValid) { 
+      setSuccess(true);
+      alert('form has been submitted, ' + email);
+    }
     else setEmailValid(false);
   }
 
@@ -38,9 +41,9 @@ export default function EmailSubmission(props) {
 
         // Activate a "isInvalid" variant based on whether the typed email is
         // valid or not
-        emailinvalid: isEmailValid ? 1 : 0,
-        submitted: success ? 1 : 0,
-        error: failure ? 1 : 0
+        emailInvalid: !isEmailValid,
+        submitted: success,
+        error: failure,
       }}
     />
   );

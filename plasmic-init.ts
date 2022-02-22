@@ -1,6 +1,7 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
 import { HelloWorld } from "./components/HelloWorld";
 import EmailSubmission from "./components/EmailSubmission";
+import Map from "./components/Map";
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -23,6 +24,13 @@ PLASMIC.registerComponent(HelloWorld, {
     verbose: 'boolean',
     children: 'slot'
   }
+});
+
+PLASMIC.registerComponent(Map, {
+  name: 'Map',
+  props: {
+    className: 'string',
+  },
 });
 
 PLASMIC.substituteComponent(EmailSubmission, 'EmailCollector');
