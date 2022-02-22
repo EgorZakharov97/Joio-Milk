@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PlasmicComponent } from '@plasmicapp/loader-nextjs';
 import validateEmail from '../lib/validateEmail';
 
-export default function EmailSubmission(props) {
+export default function EmailSubmission() {
   const [email, setEmail] = useState("");
   const [isEmailValid, setEmailValid] = useState(true);
   const [success, setSuccess] = useState(false);
