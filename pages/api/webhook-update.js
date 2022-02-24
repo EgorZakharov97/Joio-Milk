@@ -4,7 +4,7 @@ process.env.query = "123123";
 export default function handler(req, res) {
   const isSafe = req.query.pwd === process.env.query;
   if (isSafe) {
-    const script = exec("sh ../../update.sh");
+    const script = exec("sh /update.sh");
     script.stdout.on('data', (data)=>{
       console.log(data); 
       // do whatever you want here with data
